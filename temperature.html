@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<style>
+    Body {
+        background-color: black;
+    }
+
+    .input-div {
+        text-align: center;
+        display: inline-block;
+        margin-top: 10%;
+
+    }
+
+    .input-div input {
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .ins {
+        height: 30px;
+        width: auto;
+    }
+
+    #container {
+        height: 250px;
+        width: 700px;
+        margin: 0px auto;
+        background-color: aquamarine;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 2px 5px 2px 0px rgba(234, 200, 171, 0.359);
+    }
+
+    body h1 {
+        text-align: center;
+        margin-top: 15%;
+        color: aquamarine;
+    }
+</style>
+
+<body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Celsius</label><br>
+            <input type="number" value="0" class="ins" id="cel">
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" class="ins" id="fah">
+        </div>
+    </div>
+    <script>
+        let cel = document.getElementById("cel")
+        let fah = document.getElementById("fah")
+        // to set up functions to be called when a specified event happens
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(4)
+            }
+            fah.value = f;
+
+        });
+
+        fah.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+            if (!Number.isInteger(c)) {
+                c = c.toFixed(4);
+            }
+            cel.value = c;
+
+        });
+    </script>
+
+</body>
+
+</html>
